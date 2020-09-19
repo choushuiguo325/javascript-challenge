@@ -41,26 +41,20 @@
                       </li>
                       <li class="filter list-group-item">
                         <label for="city">Enter a City</label>
-                        <input class="form-control" id="city" type="text" placeholder="benton">
+                        <!-- <input class="form-control" id="city" type="text" placeholder="benton">  -->
+                        <select name="dropdown-menu" id="city">
+                          <option value="city1">Action1</option>
+                          <option value="city2">Action2</option>
+                          <option value="city3">Action3</option>
+                          
+                        </select>
                       </li>
-                      <li class="filter list-group-item">
-                        <label for="city">Enter a State</label>
-                        <input class="form-control" id="state" type="text" placeholder="ca">
-                      </li>
-                      <li class="filter list-group-item">
-                        <label for="city">Enter a Country</label>
-                        <input class="form-control" id="country" type="text" placeholder="us">
-                      </li>
-                      <li class="filter list-group-item">
-                        <label for="city">Enter a Shape</label>
-                        <input class="form-control" id="shape" type="text" placeholder="circle">
-                      </li>
-
-
                     </ul>
-
+                    <div class="btn-group">
+                      <!-- <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">city</button> -->
+                      <button id="filter-btn" type="button" class="btn btn-default btn-danger">Filter Table</button>
+                    </div>
                   </div>
-                  <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
                 </form>
               </div>
             </div>

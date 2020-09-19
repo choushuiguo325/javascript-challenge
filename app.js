@@ -1,4 +1,8 @@
+// from data.js
+var tableData = data;
+
 // YOUR CODE HERE!
+
 // create table body 
 var tbody = d3.select("tbody");
 // use a loop to append each value in the dictionary list to each row
@@ -18,22 +22,11 @@ button.on('click', runEnter);
 
 function runEnter() {
     d3.event.preventDefault();
-    var inputDate = d3.select('#datetime').property('value');
-    var inputCity = d3.select('#city').property('value');
-    var inputState = d3.select('#state').property('value');
-    var inputCountry = d3.select('#country').property('value');
-    var inputShape = d3.select('#shape').property('value');
-    console.log(inputDate);
-    console.log(inputCity);
-    console.log(inputState);
-    console.log(inputCountry);
-    console.log(inputShape);
+    var inputField = d3.select('#datetime');
+    var inputValue = inputField.property('value');
+    console.log(inputValue);
 
-    var target = data.filter(sighting => sighting.datetime === inputDate 
-        && sighting.country === inputCountry 
-        && sighting.city === inputCity 
-        && sighting.state === inputState
-        && sighting.shape === inputShape );
+    var target = data.filter(sighting => sighting.datetime === inputValue);
     console.log(target);
 
     tbody.html("");
@@ -77,21 +70,23 @@ data.forEach((sighting) => {
     };
 });
 
+
 cities.sort();
 states.sort();
 countries.sort();
 shapes.sort();
 
-console.log(cities);
-console.log(states);
-console.log(countries);
-console.log(shapes);
+
+var dropdown_code
+for (i=0; i < cities.length; i++){
+    dropdown_code += `<option value="${cities[i]}"> ${cities[i]} </option>`
+}
+// console.log(dropdown_code)
 
 
-
-
-
-// var formGroup = d3.select(".form-group");
+var dropdown = d3.select("#city");
+dropdown.html("");
+dropdown.html(dropdown_code);
 
 // filtration = {"city":cities, "state":states, "country": countries, "shape": shapes};
 // Object.entries(filtration).forEach(([key, value]) => {
