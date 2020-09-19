@@ -79,15 +79,15 @@ var formGroup = d3.select(".form-group");
 
 filtration = {"city":cities, "state":states, "country": countries, "shape": shapes};
 Object.entries(filtration).forEach(([key, value]) => {
-    var conditionGroup = formGroup.append('div');
-    conditionGroup.attr('class', 'btn-group');
-    conditionGroup.append(`<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">find a ${key}</button>`);
-    conditionGroup.append(`<label for="date">Enter a Date</label>`);
-    var dropdownManu = conditionGroup.append('div');
-    dropdownManu.attr('class', 'dropdown-menu');
-    value.forEach(elt => {
-        dropdownManu.append(`<a class="dropdown-item" href="#">${elt}</a>`);
-    });
+    // var conditionGroup = formGroup.append('div');
+    // conditionGroup.attr('class', 'btn-group');
+    // conditionGroup.append(`<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">find a ${key}</button>`);
+    // conditionGroup.append(`<label for="date">Enter a Date</label>`);
+    // var dropdownManu = conditionGroup.append('div');
+    // dropdownManu.attr('class', 'dropdown-menu');
+    // value.forEach(elt => {
+    //     dropdownManu.append(`<a class="dropdown-item" href="#">${elt}</a>`);
+    // });
 
 });
 
