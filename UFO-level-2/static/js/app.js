@@ -23,18 +23,35 @@ function runEnter() {
     var inputState = d3.select('#state').property('value');
     var inputCountry = d3.select('#country').property('value');
     var inputShape = d3.select('#shape').property('value');
-    console.log(inputDate);
-    console.log(inputCity);
-    console.log(inputState);
-    console.log(inputCountry);
-    console.log(inputShape);
+    // console.log(inputDate);
+    // console.log(inputCity);
+    // console.log(inputState);
+    // console.log(inputCountry);
+    // console.log(inputShape);
 
-    var target = data.filter(sighting => sighting.datetime === inputDate 
-        && sighting.country === inputCountry 
-        && sighting.city === inputCity 
-        && sighting.state === inputState
-        && sighting.shape === inputShape );
-    console.log(target);
+    let target = data;
+    if (inputDate !== '') {
+        target = target.filter(sighting =>sighting.datetime === inputDate);
+    };
+
+    if (inputCity !== '') {
+        target = target.filter(sighting =>sighting.city === inputCity);
+    };
+
+    if (inputState !== '') {
+        target = target.filter(sighting =>sighting.state === inputState);
+    };
+
+    if (inputCountry !== '') {
+        target = target.filter(sighting =>sighting.country === inputCountry);
+    };
+
+    if (inputShape !== '') {
+        target = target.filter(sighting =>sighting.shape === inputShape);
+    };
+
+    // console.log("This is target", target);
+
 
     tbody.html("");
     target.forEach((sighting) => {
@@ -77,33 +94,45 @@ data.forEach((sighting) => {
     };
 });
 
+
 cities.sort();
 states.sort();
 countries.sort();
 shapes.sort();
 
-console.log(cities);
-console.log(states);
-console.log(countries);
-console.log(shapes);
+// console.log(cities);
+// console.log(states);
+// console.log(countries);
+// console.log(shapes);
+
+
+let countryDropdown = d3.select('#country');
+for (i=0; i < countries.length; i++){
+     let option = countryDropdown.append('option');
+     option.attr('value', countries[i]);
+     option.text(countries[i]);
+}
+
+
+let stateDropdown = d3.select('#state');
+for (i=0; i < states.length; i++){
+     let option = stateDropdown.append('option');
+     option.attr('value', states[i]);
+     option.text(states[i]);
+}
+
+let shapeDropdown = d3.select('#shape');
+for (i=0; i < shapes.length; i++){
+     let option = shapeDropdown.append('option');
+     option.attr('value', shapes[i]);
+     option.text(shapes[i]);
+}
 
 
 
 
 
-// var formGroup = d3.select(".form-group");
 
-// filtration = {"city":cities, "state":states, "country": countries, "shape": shapes};
-// Object.entries(filtration).forEach(([key, value]) => {
-//     var conditionGroup = formGroup.append('div');
-//     conditionGroup.attr('class', 'btn-group');
-//     conditionGroup.append(`<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">find a ${key}</button>`);
-//     conditionGroup.append(`<label for="date">Enter a Date</label>`);
-//     var dropdownManu = conditionGroup.append('div');
-//     dropdownManu.attr('class', 'dropdown-menu');
-//     value.forEach(elt => {
-//         dropdownManu.append(`<a class="dropdown-item" href="#">${elt}</a>`);
-//     });
 
-// });
+
 
